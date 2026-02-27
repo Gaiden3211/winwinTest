@@ -1,20 +1,17 @@
-# Секрети (Критично!)
+# ===== Secrets =====
 .env
 
-# Збірка Java/Maven
+# ===== Java / Maven =====
 target/
 **/target/
 *.jar
 *.class
 
-# IDE (IntelliJ, VS Code)
+# ===== IDE =====
 .idea/
 *.iml
 .vscode/
 
-# Зайве від старого проекту "Test"
-/src/
-/pom.xml
-/mvnw
-/mvnw.cmd
-/HELP.md
+# ===== OS =====
+.DS_Store
+Thumbs.db
