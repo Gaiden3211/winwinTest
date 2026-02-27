@@ -47,14 +47,14 @@ JJWT (для роботи з токенами).
 
 POSTGRES_USER= імя користувача
 
-POSTGRES_PASSWORD= праоль бд
+POSTGRES_PASSWORD= пароль бд
 
 POSTGRES_DB= назва бд
 
 
 INTERNAL_TOKEN= токен
 
-JWT_SECRET= ключ
+JWT_SECRET= секрет
 
 JWT_EXPIRATION_MS=час у мс
 
