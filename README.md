@@ -48,12 +48,16 @@ JJWT (для роботи з токенами).
 
 # Збірка Сервісу А
 cd auth-api
+
 .\mvnw.cmd clean package -DskipTests
+
 cd ..
 
 # Збірка Сервісу Б
 cd data-api
+
 .\mvnw.cmd clean package -DskipTests
+
 cd ..
 
 
@@ -78,6 +82,8 @@ JSON
 "email": "engineer@cherkasy.ua",
 "password": "secure_password"
 }
+
+
 2. Вхід та отримання токена (POST)
    URL: http://localhost:8080/api/auth/login
 
@@ -86,6 +92,8 @@ JSON
 "email": "engineer@cherkasy.ua",
 "password": "secure_password"
 }
+
+
 Збережіть отриманий token.
 
 3. Обробка тексту (POST - Захищено JWT)
