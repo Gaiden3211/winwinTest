@@ -1,0 +1,20 @@
+# Секрети (Критично!)
+.env
+
+# Збірка Java/Maven
+target/
+**/target/
+*.jar
+*.class
+
+# IDE (IntelliJ, VS Code)
+.idea/
+*.iml
+.vscode/
+
+# Зайве від старого проекту "Test"
+/src/
+/pom.xml
+/mvnw
+/mvnw.cmd
+/HELP.md

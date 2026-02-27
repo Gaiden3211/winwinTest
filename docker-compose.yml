@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres-db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    networks:
+      - winwin-network
+
+  auth-api:
+    build: ./auth-api
+    container_name: auth-api
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/${POSTGRES_DB}
+      - SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
+      - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRATION_MS=${JWT_EXPIRATION_MS}
+      - INTERNAL_TOKEN=${INTERNAL_TOKEN}
+      - DATA_API_URL=http://data-api:8081/api/transform
+    depends_on:
+      - postgres
+    networks:
+      - winwin-network
+
+  data-api:
+    build: ./data-api
+    container_name: data-api
+    ports:
+      - "8081:8081"
+    environment:
+      - INTERNAL_TOKEN=${INTERNAL_TOKEN}
+    networks:
+      - winwin-network
+
+networks:
+  winwin-network:
+    driver: bridge
